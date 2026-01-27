@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"] = "Upload Payroll Excel";
+}
+
+<h2>Upload Payroll Excel</h2>
+
+<form asp-controller="Payroll" asp-action="UploadFile" method="post" enctype="multipart/form-data">
+    <div>
+        <label>Excel File:</label>
+        <input type="file" name="file" />
+    </div>
+    <div>
+        <label>Start Line:</label>
+        <input type="number" name="startLine" value="1" />
+    </div>
+    <div>
+        <label>Left Margin (px):</label>
+        <input type="number" name="marginLeft" value="40" />
+    </div>
+    <div>
+        <label>Top Margin (px):</label>
+        <input type="number" name="marginTop" value="60" />
+    </div>
+    <div>
+        <label>Line Height (px):</label>
+        <input type="number" name="lineHeight" value="14" />
+    </div>
+    <button type="submit">Upload & Generate PDF</button>
+</form>

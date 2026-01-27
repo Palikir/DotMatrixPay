@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "dgSpecHash": "uqdCm5amGCQ=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\JP\\Documents\\VS Code\\Wage Tax Printer\\PayrollPrinterApp\\PayrollPrinterApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\JP\\.nuget\\packages\\epplus\\6.2.3\\epplus.6.2.3.nupkg.sha512",
+    "C:\\Users\\JP\\.nuget\\packages\\epplus.interfaces\\6.1.1\\epplus.interfaces.6.1.1.nupkg.sha512",
+    "C:\\Users\\JP\\.nuget\\packages\\epplus.system.drawing\\6.1.1\\epplus.system.drawing.6.1.1.nupkg.sha512",
+    "C:\\Users\\JP\\.nuget\\packages\\microsoft.io.recyclablememorystream\\2.2.1\\microsoft.io.recyclablememorystream.2.2.1.nupkg.sha512",
+    "C:\\Users\\JP\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
+    "C:\\Users\\JP\\.nuget\\packages\\questpdf\\2025.12.3\\questpdf.2025.12.3.nupkg.sha512",
+    "C:\\Users\\JP\\.nuget\\packages\\system.drawing.common\\7.0.0\\system.drawing.common.7.0.0.nupkg.sha512",
+    "C:\\Users\\JP\\.nuget\\packages\\system.security.cryptography.pkcs\\7.0.0\\system.security.cryptography.pkcs.7.0.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "Package 'System.Security.Cryptography.Pkcs' 7.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-555c-2p6r-68mm",
+      "projectPath": "C:\\Users\\JP\\Documents\\VS Code\\Wage Tax Printer\\PayrollPrinterApp\\PayrollPrinterApp.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\JP\\Documents\\VS Code\\Wage Tax Printer\\PayrollPrinterApp\\PayrollPrinterApp.csproj",
+      "libraryId": "System.Security.Cryptography.Pkcs",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
+}
