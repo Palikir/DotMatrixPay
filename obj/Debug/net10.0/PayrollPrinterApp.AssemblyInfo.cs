@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PayrollPrinterApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+53cc6087e6ef7bf76037849f84a221117b5d8261")]
 [assembly: System.Reflection.AssemblyProductAttribute("PayrollPrinterApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PayrollPrinterApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

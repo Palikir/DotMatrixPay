@@ -1,0 +1,40 @@
+@model PayrollPrinterApp.Models.PrintSettings
+
+<h2>Printer Settings</h2>
+
+@if (TempData["Message"] != null)
+{
+    <p style="color:green">@TempData["Message"]</p>
+}
+
+<form asp-controller="Settings" asp-action="Save" method="post">
+    <div>
+        <label>Left Margin (px):</label>
+        <input type="number" asp-for="MarginLeft" step="1" />
+    </div>
+    <div>
+        <label>Top Margin (px):</label>
+        <input type="number" asp-for="MarginTop" step="1" />
+    </div>
+    <div>
+        <label>Line Height (px):</label>
+        <input type="number" asp-for="LineHeight" step="1" />
+    </div>
+    <div>
+        <label>Page Width (inches):</label>
+        <input type="number" asp-for="PageWidthInches" step="0.1" />
+    </div>
+    <div>
+        <label>Page Height (inches):</label>
+        <input type="number" asp-for="PageHeightInches" step="0.1" />
+    </div>
+    <fieldset> 
+        <legend>Select State (required):</legend> 
+        <label><input type="radio" name="state" value="Pohnpei" required /> Pohnpei</label> 
+        <label><input type="radio" name="state" value="Chuuk" /> Chuuk</label> 
+        <label><input type="radio" name="state" value="Yap" /> Yap</label> 
+        <label><input type="radio" name="state" value="Kosrae" /> Kosrae</label> 
+    </fieldset>
+
+    <button type="submit">Save Settings</button>
+</form>

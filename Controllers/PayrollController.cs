@@ -4,6 +4,7 @@ using PayrollPrinterApp.Models;
 using PayrollPrinterApp.Services;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.Cryptography;
 
 namespace PayrollPrinterApp.Controllers
 {
@@ -15,7 +16,7 @@ namespace PayrollPrinterApp.Controllers
         public PayrollController(IConfiguration config) { _config = config; }
 
         [HttpPost]
-        public IActionResult UploadFile(IFormFile file, int startLine = 1, int marginLeft = 40, int marginTop = 60, int lineHeight = 14)
+        public IActionResult UploadFile(IFormFile file, string state, int startLine = 1)
         {
             if (file == null || file.Length == 0)
                 return Content("No file selected");
@@ -30,7 +31,7 @@ namespace PayrollPrinterApp.Controllers
                     var worksheet = package.Workbook.Worksheets[0];
                     int rowCount = worksheet.Dimension.Rows;
 
-                    for (int row = 2; row <= rowCount; row++) // skip header
+                    for (int row = startLine + 1; row <= rowCount; row++) // skip header
                     {
                         records.Add(new PayrollRecord
                         {
@@ -40,14 +41,19 @@ namespace PayrollPrinterApp.Controllers
                             LastName = worksheet.Cells[row, 4].Text,
                             FirstName = worksheet.Cells[row, 5].Text,
                             FWTax = decimal.TryParse(worksheet.Cells[row, 6].Text, out var fw) ? fw : 0,
-                            WageTax = decimal.TryParse(worksheet.Cells[row, 7].Text, out var wt) ? wt : 0
+                            WageTax = decimal.TryParse(worksheet.Cells[row, 7].Text, out var wt) ? wt : 0,
+                            SSTax = worksheet.Cells[row, 8].Text
+                            // SSTax = decimal.TryParse(worksheet.Cells[row, 8].Text, out var st) ? st : 0
                         });
                     }
                 }
             }
 
-            var pdfBytes = _pdfService.GeneratePayrollPdf(records, startLine, marginLeft, marginTop, lineHeight);
-            return File(pdfBytes, "application/pdf", "PayrollReport.pdf");
+            var settings = SettingsController.GetSettings();
+            var pdfBytes = _pdfService.GeneratePayrollPdf(records, startLine, settings, state);
+
+            // Preview mode: inline display
+            return File(pdfBytes, "application/pdf");
         }
 
         public IActionResult Upload() 

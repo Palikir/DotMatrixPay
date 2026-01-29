@@ -9,5 +9,7 @@ namespace PayrollPrinterApp.Models
         public string FirstName { get; set; }
         public decimal FWTax { get; set; }
         public decimal WageTax { get; set; }
+        public string State { get; set; }
+        public string SSTax { get; set; }
     }
 }
